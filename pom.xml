@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--这个，有用，声明一些POM相关的命名空间以及xsd元素，这些元素，对于手动编写不是必须的，但是对于第三方工具，例如我使用的IDEA就是需要的，可以帮助我快速的编辑POM。-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -32,6 +33,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
+        <spring.version>4.3.24.RELEASE</spring.version>
     </properties>
 
     <!--父层设置的依赖管理，不实际依赖，但是子类可以使用，目的在于统一管理依赖版本-->
@@ -42,6 +44,12 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
 
