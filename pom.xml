@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--这个，有用，声明一些POM相关的命名空间以及xsd元素，这些元素，对于手动编写不是必须的，但是对于第三方工具，例如我使用的IDEA就是需要的，可以帮助我快速的编辑POM。-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--当前的POM的版本信息。3.0一上的都是4.0.0，不容置喙的这样。-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--项目3元素，唯一定位项目-->
+    <!--当前元素，声明的是项目所属的组织或者是公司。-->
+    <groupId>com.sheyla</groupId>
+    <!--artifactId元素定义的是当前maven项目在组织中的唯一标识，也可以理解为组织下的不同的模块-->
+    <artifactId>design.pattterns</artifactId>
+    <!--version 声明的是该maven项目的版本号，后面会讲到maven版本的管理和升级信息，都是这个-->
+    <version>0.0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>factory</module>
+        <module>strategy</module>
+        <module>delegate</module>
+        <module>template</module>
+    </modules>
+    <!--父层必须指定格式为pom-->
+    <packaging>pom</packaging>
+
+    <!--设置工程的名字，如果没有，工程的名字为artifactId-->
+    <name>sheyla-design-patterms</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>4.12</junit.version>
+    </properties>
+
+    <!--父层设置的依赖管理，不实际依赖，但是子类可以使用，目的在于统一管理依赖版本-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--参考：https://blog.csdn.net/zdb292034/article/details/80893137-->
+</project>
+
